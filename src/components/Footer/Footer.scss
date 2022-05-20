@@ -1,0 +1,67 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/font.scss";
+
+.footer {
+  background-color: $black;
+  color: $light;
+  position: relative;
+
+  &__substract {
+    background-image: url("../../assets/images/sutract.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 0;
+  }
+
+  &__logo-img {
+    width: 182px;
+    height: 70px;
+    object-fit: contain;
+  }
+
+  &__item + &__item {
+    margin-top: 15px;
+  }
+
+  &__item-main {
+    font-size: 20px;
+    line-height: 27px;
+    font-family: "Roboto Mono";
+    margin-bottom: 14px;
+  }
+  &__item {
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 24px;
+    font-family: "Roboto Mono";
+
+    &:hover {
+      color: $coral;
+    }
+  }
+  &__item--active {
+    text-decoration: underline;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .footer {
+    &__wrapper {
+      display: block;
+    }
+
+    &__logo-img {
+      width: 120px;
+      height: 34px;
+    }
+
+    &__list {
+      margin-top: 40px;
+    }
+  }
+}

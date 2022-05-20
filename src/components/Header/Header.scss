@@ -1,0 +1,82 @@
+@import "../../assets/styles/font.scss";
+@import "../../assets/styles/variables.scss";
+
+.header {
+  padding-top: 35px;
+  padding-bottom: 35px;
+
+  &__container {
+    max-width: 1560px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__menu {
+    display: none;
+  }
+
+  &__off {
+    display: none;
+  }
+
+  &__logo-img {
+    width: 210px;
+    height: 58px;
+    object-fit: contain;
+  }
+
+  &__list {
+    display: flex;
+  }
+
+  &__item + &__item {
+    margin-left: 40px;
+  }
+
+  &__item-link {
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 21px;
+    color: $medgray;
+    font-family: "Roboto Mono";
+
+    &:hover {
+      color: $coral;
+    }
+  }
+
+  &__item-link--active {
+    text-decoration: underline;
+    color: $dark;
+  }
+
+  &__input {
+    border: none;
+    background-color: $light-gray;
+    border-radius: 3px;
+    padding-top: 6px;
+    padding-bottom: 10px;
+    padding-left: 14px;
+    padding-right: 38px;
+  }
+
+  &__btn {
+    background-color: $coral;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+  }
+
+  &__btn-img {
+    margin: 12px;
+  }
+}

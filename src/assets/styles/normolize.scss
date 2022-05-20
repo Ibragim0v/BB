@@ -1,0 +1,65 @@
+@import "./font.scss";
+
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  &::after {
+    box-sizing: border-box;
+  }
+  &::before {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  font-family: "Roboto Mono";
+  font-size: 16px;
+  line-height: 24px;
+  overflow-x: hidden;
+}
+
+.container-m {
+  max-width: 1560px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @media only screen and (max-width: 800px) {
+    max-width: 750px;
+  }
+
+  @media only screen and (max-width: 500px) {
+    max-width: 375px;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0%;
+  padding: 0%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.clr {
+  clear: both;
+}
+
+img {
+  vertical-align: middle;
+}

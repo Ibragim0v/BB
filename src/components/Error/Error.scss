@@ -1,0 +1,82 @@
+@import "../../assets/styles/variables.scss";
+@import "../../assets/styles/font.scss";
+
+.error {
+  margin-top: 31px;
+  margin-bottom: 70px;
+
+  &__wrapper {
+    text-align: center;
+  }
+
+  &__img {
+    object-fit: contain;
+    width: 400px;
+    height: 193px;
+  }
+
+  &__found {
+    font-size: 24px;
+    line-height: 36px;
+    color: $gray;
+    margin-top: 50px;
+    font-family: "Roboto Mono";
+  }
+
+  &__mes {
+    font-family: "Roboto Mono";
+    font-size: 16px;
+    line-height: 32px;
+    color: $gray;
+    margin-top: 20px;
+  }
+
+  &__link {
+    color: $gray;
+    font-family: "Roboto Mono";
+    font-size: 16px;
+    line-height: 32px;
+    margin-top: 40px;
+
+    &:hover {
+      color: $coral;
+    }
+  }
+
+  &__arr {
+    margin-left: 16px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .error {
+    margin-top: 31px;
+
+    &__img {
+      width: 300px;
+      height: 141px;
+    }
+
+    &__found {
+      font-size: 20px;
+      line-height: 32px;
+      margin-top: 30px;
+    }
+
+    &__mes {
+      font-size: 14px;
+      line-height: 28px;
+      margin-top: 15px;
+    }
+
+    &__link {
+      font-size: 14px;
+      line-height: 28px;
+      margin-top: 25px;
+    }
+
+    &__arr {
+      margin-left: 8px;
+    }
+  }
+}
