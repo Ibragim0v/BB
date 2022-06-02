@@ -3,10 +3,20 @@ import logo from "../../assets/images/logo.svg";
 import search from "../../assets/images/search.svg";
 import { NavLink } from "react-router-dom";
 import burger from "../../assets/images/burger.svg";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { useContext } from "react";
+import { InputContext } from "../../context/Input";
 
 export function Header() {
   const [burgerBtn, setBurgerBtn] = useState(false);
+  const searchRef = useRef();
+  const { setInputValue } = useContext(InputContext);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+
+    setInputValue(searchRef.current.value);
+  };
 
   const handleBurger = () => {
     if (burgerBtn === true) {
@@ -36,7 +46,7 @@ export function Header() {
           </div>
         </div>
 
-        <nav className={`header__nav ${!burgerBtn && "d-none"}`}>
+        <nav className={`header__nav ${!burgerBtn && "header__lg-none"}`}>
           <ul className='header__list'>
             <li className='header__item'>
               <NavLink
@@ -96,9 +106,14 @@ export function Header() {
           </ul>
         </nav>
 
-        <form className='header__form'>
-          <input className='header__input' type='text' placeholder='search' />
-          <button className='header__btn'>
+        <form onSubmit={handleSearch} className='header__form'>
+          <input
+            ref={searchRef}
+            className='header__input'
+            type='text'
+            placeholder='search'
+          />
+          <button className='header__btn' type='submit'>
             <img
               className='header__btn-img'
               src={search}

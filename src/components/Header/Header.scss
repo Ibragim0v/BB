@@ -57,6 +57,7 @@
 
   &__input {
     border: none;
+    outline: none;
     background-color: $light-gray;
     border-radius: 3px;
     padding-top: 6px;
@@ -84,6 +85,10 @@
 
     &__container {
       max-width: 360px;
+    }
+
+    &__lg-none {
+      display: none;
     }
 
     &__wrapper {
@@ -118,6 +123,7 @@
       background-color: $light;
       width: 360px;
       height: 720px;
+      z-index: 9999;
     }
 
     &__list {

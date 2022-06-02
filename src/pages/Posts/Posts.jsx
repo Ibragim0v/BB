@@ -7,6 +7,8 @@ import ln from "../../assets/images/linkedin.svg";
 import clock from "../../assets/images/clock.svg";
 import "./Posts.scss";
 import { useEffect, useRef, useState } from "react";
+import { useContext } from "react";
+import { InputContext } from "../../context/Input";
 
 export function Posts() {
   const limit = 10;
@@ -14,6 +16,9 @@ export function Posts() {
   const [posts, setPosts] = useState([]);
   const prevRef = useRef();
   const nextRef = useRef();
+  const { inputValue } = useContext(InputContext);
+
+  console.log(inputValue);
 
   useEffect(() => {
     const lastPage = Math.ceil(posts.length / limit);
@@ -96,22 +101,33 @@ export function Posts() {
 
         {posts.length > 0 && (
           <ul className='post__list-posts'>
-            {posts.slice((page - 1) * limit, limit * page).map((post) => (
-              <li className='post__item-posts' key={post.id}>
-                <div className='post__params'>
-                  <span className='post__data'>September 24.2020</span>
-                  <span className='post__category'>Typography</span>
-                </div>
-                <Link to={`/posts/${post.id}`}>
-                  <h5 className='post__link'>{post.title}</h5>
-                </Link>
+            {posts
+              .slice((page - 1) * limit, limit * page)
+              .filter((val) => {
+                if (inputValue == "") {
+                  return val;
+                } else if (
+                  val.title.toLowerCase().includes(inputValue.toLowerCase())
+                ) {
+                  return val;
+                }
+              })
+              .map((post) => (
+                <li className='post__item-posts' key={post.id}>
+                  <div className='post__params'>
+                    <span className='post__data'>September 24.2020</span>
+                    <span className='post__category'>Typography</span>
+                  </div>
+                  <Link to={`/posts/${post.id}`}>
+                    <h5 className='post__link'>{post.title}</h5>
+                  </Link>
 
-                <div className='post__view'>
-                  <img className='post__view-img' src={clock} alt='clock' />
-                  <span className='post__view-time'>3 minutes read</span>
-                </div>
-              </li>
-            ))}
+                  <div className='post__view'>
+                    <img className='post__view-img' src={clock} alt='clock' />
+                    <span className='post__view-time'>3 minutes read</span>
+                  </div>
+                </li>
+              ))}
           </ul>
         )}
 
