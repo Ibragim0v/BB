@@ -11,10 +11,38 @@ function App() {
       <Routes>
         <Route path='/' element={<Posts />} />
         <Route path='/posts/:userId' element={<PostSingle />} />
-        <Route path='/design' element={<>Design Theory </>} />
-        <Route path='/ux' element={<>UX </>} />
-        <Route path='/ui' element={<>UI </>} />
-        <Route path='/typography' element={<>Typography </>} />
+        <Route
+          path='/design'
+          element={
+            <div className='text-center h1 text-primary'>
+              Design Theory is being prepared
+            </div>
+          }
+        />
+        <Route
+          path='/ux'
+          element={
+            <div className='text-center h1 text-primary'>
+              UX is being prepared{" "}
+            </div>
+          }
+        />
+        <Route
+          path='/ui'
+          element={
+            <div className='text-center h1 text-primary'>
+              UI is being prepared{" "}
+            </div>
+          }
+        />
+        <Route
+          path='/typography'
+          element={
+            <div className='text-center h1 text-primary'>
+              Typography is being prepared{" "}
+            </div>
+          }
+        />
         <Route path='*' element={<Error />} />
       </Routes>
 

@@ -11,14 +11,12 @@ import { useContext } from "react";
 import { InputContext } from "../../context/Input";
 
 export function Posts() {
+  const { inputValue } = useContext(InputContext);
   const limit = 10;
   const [page, setPage] = useState(1);
   const [posts, setPosts] = useState([]);
   const prevRef = useRef();
   const nextRef = useRef();
-  const { inputValue } = useContext(InputContext);
-
-  console.log(inputValue);
 
   useEffect(() => {
     const lastPage = Math.ceil(posts.length / limit);
@@ -102,16 +100,16 @@ export function Posts() {
         {posts.length > 0 && (
           <ul className='post__list-posts'>
             {posts
-              .slice((page - 1) * limit, limit * page)
-              .filter((val) => {
+              .filter((item) => {
                 if (inputValue == "") {
-                  return val;
+                  return item;
                 } else if (
-                  val.title.toLowerCase().includes(inputValue.toLowerCase())
+                  item.title.toLowerCase().includes(inputValue.toLowerCase())
                 ) {
-                  return val;
+                  return item;
                 }
               })
+              .slice((page - 1) * limit, limit * page)
               .map((post) => (
                 <li className='post__item-posts' key={post.id}>
                   <div className='post__params'>
@@ -133,13 +131,13 @@ export function Posts() {
 
         <div className='btn__group'>
           <button
-            className='prevBtn btn btn-primary'
+            className='prevBtn me-3 btn btn-danger'
             ref={prevRef}
             onClick={handlePrev}>
             prev
           </button>
           <button
-            className='nextBtn btn btn-primary'
+            className='nextBtn btn btn-danger'
             ref={nextRef}
             onClick={handleNext}>
             next
